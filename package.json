@@ -1,0 +1,23 @@
+{
+  "name": "googlemirror",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --w",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "cheerio": "^1.0.0-rc.2",
+    "html-parser": "^0.11.0",
+    "lodash": "^4.17.4",
+    "webpack": "^3.8.1"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.17"
+  }
+}

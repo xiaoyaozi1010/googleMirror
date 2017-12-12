@@ -1,0 +1,25 @@
+{
+  "name": "Google Mirror",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "open the most quickly Google mirror. You may need to try several more times when the page is not open. ",
+  "homepage_url": "http://rong-zhou.xyz",
+  "short_name": "Google Mirror",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/icon19.png", 
+    "default_title": "Google Mirror",
+    "default_popup": ""
+  },
+  "background": {
+    "scripts": ["dist/index.js"]
+  },
+  "permissions": [
+    "tabs",
+    "http://*/"
+  ]
+}

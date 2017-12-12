@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "outDir": "./js/",
+        "allowJs": true,
+        "module": "es2015",
+        "target": "ES5",
+        "sourceMap": true,
+        "allowSyntheticDefaultImports": true,
+        "lib": [
+            "dom",
+            "es2015",
+            "es2015.promise"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.js"
+    ],
+    "include": [
+        "src/*.ts"
+    ]
+}
