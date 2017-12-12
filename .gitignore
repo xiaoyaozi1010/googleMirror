@@ -1,2 +1,4 @@
 /node_modules
 Google Mirror.zip
+**/*.js.map
+/js
