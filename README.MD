@@ -26,7 +26,7 @@
 - 如未安装vscode，请前往下载 [vscode](https://code.visualstudio.com/)
 - vscode 打开仓库根目录
 - 菜单选择： `任务` - `运行任务` - `tsconfig.json`任务，此时vscode会监听tsconfig指定的ts文件改变。
-- 终端内`cd`到仓库根目录，执行`webpack -w`，启动自动编译即可。 
+- 终端内`cd`到仓库根目录，执行`npm run dev`，启动自动编译即可。 
 
 
 
