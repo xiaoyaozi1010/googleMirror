@@ -1,5 +1,6 @@
-import axios from 'axios';
-import _ from 'lodash';
+/// <reference path="../typings/index.d.ts" />
+
+import {get} from 'axios';
 import {Decode} from './utils'
 import { clearInterval, setInterval } from 'timers';
 import { isRegExp } from 'util';
