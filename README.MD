@@ -3,6 +3,8 @@
 
 > 镜像url均收集自网络，不保证所有url完全可用。无法打开镜像地址时，多试几次，总有能打开的😝。
 
+> 写的比较烂，大神勿喷，要是能给出指导意见就感激不尽了。
+
 ## 克隆仓库
 你可以克隆本仓库至本地。`git clone https://github.com/xiaoyaozi1010/googleMirror.git`.
 
@@ -25,6 +27,8 @@
 - vscode 打开仓库根目录
 - 菜单选择： `任务` - `运行任务` - `tsconfig.json`任务，此时vscode会监听tsconfig指定的ts文件改变。
 - 终端内`cd`到仓库根目录，执行`webpack -w`，启动自动编译即可。 
+
+
 
 
 
