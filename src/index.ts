@@ -1,13 +1,14 @@
 /// <reference path="../typings/index.d.ts" />
 
-import {get} from 'axios';
-import {Decode} from './utils'
-import { clearInterval, setInterval } from 'timers';
+import { get } from 'axios';
+import { Decode } from './utils'
 import { isRegExp } from 'util';
 class GoogleMirror {
     public sourceUrl = 'https://raw.githubusercontent.com/xiaoyaozi1010/googleMirrorJson/master/googleMirror.json'
     constructor() {
         chrome.browserAction.onClicked.addListener((tab) => {
+            // 删掉popup
+            chrome.browserAction.setPopup({ popup: '' })
             chrome.browserAction.setIcon({ path: '../icons/loading.gif' }, () => {
                 console.log('设置 icon 为 loading');
             })
@@ -20,7 +21,12 @@ class GoogleMirror {
                         return this.getMirrorUrl(res.data)
                     }
                 })
-                .then(url => chrome.tabs.create({ url }))
+                .then(url => {
+                        chrome.tabs.create({ url });
+                        // chrome.browserAction.setPopup({
+                        //     popup: './../popup.html'
+                        // })
+                    })
         })
     }
     async getMirrorUrl(urlHashes: string[]): Promise<any> {
@@ -31,7 +37,7 @@ class GoogleMirror {
         })
     }
     private getData(url: string): any {
-        return axios.get(this.sourceUrl)
+        return get(this.sourceUrl)
     }
 
     private parseData(allHash: string[]): any {
@@ -53,12 +59,10 @@ class GoogleMirror {
         let imgEle: HTMLImageElement = document.createElement('img');
         let timestamp: number = Date.now();
         return new Promise((resolve, reject) => {
-            // let isRequestEnd: boolean = false;
-            // let timeout: number = 1500;
             let counter: number = 0;
-            // let timer: any = 0;
-            imgEle.src = url + '/#' + timestamp;
-            imgEle.addEventListener('error', () => {
+            const sep = url[url.length - 1] === '/' ? '' : '/';
+            imgEle.src = `${url}${sep}favicon.ico`;
+            imgEle.addEventListener('load', () => {
                 resolve(url)
             });
             // TODO: 请求成功后的url存入 cookie 或者 webDB, 设置过期时间

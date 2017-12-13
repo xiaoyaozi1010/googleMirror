@@ -34,12 +34,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+import { get } from 'axios';
 import { Decode } from './utils';
 var GoogleMirror = /** @class */ (function () {
     function GoogleMirror() {
         var _this = this;
         this.sourceUrl = 'https://raw.githubusercontent.com/xiaoyaozi1010/googleMirrorJson/master/googleMirror.json';
         chrome.browserAction.onClicked.addListener(function (tab) {
+            // 删掉popup
+            chrome.browserAction.setPopup({ popup: '' });
             chrome.browserAction.setIcon({ path: '../icons/loading.gif' }, function () {
                 console.log('设置 icon 为 loading');
             });
@@ -52,7 +55,12 @@ var GoogleMirror = /** @class */ (function () {
                     return _this.getMirrorUrl(res.data);
                 }
             })
-                .then(function (url) { return chrome.tabs.create({ url: url }); });
+                .then(function (url) {
+                chrome.tabs.create({ url: url });
+                // chrome.browserAction.setPopup({
+                //     popup: './../popup.html'
+                // })
+            });
         });
     }
     GoogleMirror.prototype.getMirrorUrl = function (urlHashes) {
@@ -73,7 +81,7 @@ var GoogleMirror = /** @class */ (function () {
         });
     };
     GoogleMirror.prototype.getData = function (url) {
-        return axios.get(this.sourceUrl);
+        return get(this.sourceUrl);
     };
     GoogleMirror.prototype.parseData = function (allHash) {
         var decode = new Decode();
@@ -94,12 +102,10 @@ var GoogleMirror = /** @class */ (function () {
         var imgEle = document.createElement('img');
         var timestamp = Date.now();
         return new Promise(function (resolve, reject) {
-            // let isRequestEnd: boolean = false;
-            // let timeout: number = 1500;
             var counter = 0;
-            // let timer: any = 0;
-            imgEle.src = url + '/#' + timestamp;
-            imgEle.addEventListener('error', function () {
+            var sep = url[url.length - 1] === '/' ? '' : '/';
+            imgEle.src = "" + url + sep + "favicon.ico";
+            imgEle.addEventListener('load', function () {
                 resolve(url);
             });
             // TODO: 请求成功后的url存入 cookie 或者 webDB, 设置过期时间

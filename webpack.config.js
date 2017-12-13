@@ -11,7 +11,12 @@ module.exports = {
         path: path.resolve(__dirname, 'extension/dist'),
         filename: '[name].js',
     },
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
+    module: {
+        rules: [
+            { test: /\.tsx?/, loader: 'awesome-typescript-loader' }
+        ]
+    },
     plugins: [
         new cleanPlugin(['extension/dist']),
     ]

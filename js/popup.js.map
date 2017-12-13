@@ -1,1 +1,1 @@
-{"version":3,"file":"popup.js","sourceRoot":"","sources":["../src/popup.ts"],"names":[],"mappings":""}
+{"version":3,"file":"popup.js","sourceRoot":"","sources":["../src/popup.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,KAAK,MAAM,OAAO,CAAA;AAC9B,OAAO,QAAQ,MAAM,WAAW,CAAA;AAEhC,OAAO,EAAE,IAAI,EAAE,MAAM,kBAAkB,CAAA;AAEvC,QAAQ,CAAC,MAAM,CACX,oBAAC,IAAI,IAAC,IAAI,EAAC,WAAW,GAAG,EACzB,QAAQ,CAAC,aAAa,CAAC,OAAO,CAAC,CAClC,CAAA"}
